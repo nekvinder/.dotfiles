@@ -1,0 +1,14 @@
+[user]
+	name = nekvinder
+	email = nekvinder@gmail.com
+[pull]
+	rebase = false
+[core]
+	ignorecase = false
+[safe]
+	directory = /usr/src
+	directory = /home/nekvinder
+[alias]
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+[includeIf "gitdir:/home/nekvinder/wk/"]
+  path = .gitconfig-wk

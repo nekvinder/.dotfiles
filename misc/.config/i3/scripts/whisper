@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+copyq tab predictedTexts read 0
+echo ""

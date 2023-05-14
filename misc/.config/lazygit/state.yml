@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/nek/.dotfiles
+- /home/nek/.dotfiles_private
 - /home/nekvinder/wk/tf-aws-cloud-common-3
 - /home/nekvinder/wk/wkapp-taskflow-2
 - /home/nekvinder/wk/tf-aws-cloud-2

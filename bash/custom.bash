@@ -9,8 +9,8 @@ export DP2="HDMI-1-1"
 export DP1="eDP1"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="~/.dotfiles/scripts:$PATH"
-export PATH="~/.dotfiles_private/scripts:$PATH"
+export PATH="$HOME/.dotfiles/scripts:$PATH"
+export PATH="$HOME/.dotfiles_private/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias pls='sudo $(fc -ln -1)'

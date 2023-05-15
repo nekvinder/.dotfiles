@@ -19,10 +19,13 @@ if [ $? != 0 ]; then
         tmux new-window -t $TMUX_SESSION_NAME -n aws_sandbox -c "$TMUX_SESSION_ROOT"
         tmux send-keys -t $TMUX_SESSION_NAME "export AWS_PROFILE=tf-sandbox-mfa" Enter "aws_mfa.sh tf-sandbox 123456"
     fi
-    
+
+    echo "tmux session created" >> /tmp/sad
+else
+    echo "tmux session exists" >> /tmp/sad
 fi
 
 # tmux new-window -t $TMUX_SESSION_NAME -n vscode -c "$TMUX_SESSION_ROOT"
 # tmux send-keys -t $TMUX_SESSION_NAME "code .; exit" Enter
 
-tmux attach-session -t $TMUX_SESSION_NAME
+# tmux attach-session -t $TMUX_SESSION_NAME

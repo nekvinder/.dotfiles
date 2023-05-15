@@ -9,6 +9,8 @@
 
 [[ -f /home/nekvinder/.bashrc ]] && . /home/nekvinder/.bashrc
 
+[[ -f /home/nek/custom.bash ]] && . /home/nek/custom.bash
+
 _set_liveuser_PS1() {
     PS1='[\u@\h \W]\$ '
     if [ "$(whoami)" = "liveuser" ] ; then
@@ -91,4 +93,5 @@ if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTIO
 then
     exec zsh
 fi
+
 . "$HOME/.cargo/env"

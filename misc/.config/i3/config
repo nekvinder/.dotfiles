@@ -2,6 +2,7 @@ font pango: Noto Sans Regular 10
 
 set $alt Mod1
 set $mod Mod4
+set $HOME /home/nek
 
 
 # Custom monitor settings
@@ -216,8 +217,7 @@ workspace $ws9 output $DP2
 bindsym Print exec flameshot full
 bindsym Shift+Print exec flameshot gui
 bindsym $mod+p exec flameshot gui
-bindsym $mod+c exec ~/.dotfiles/scripts/code_selector.sh
-bindsym $mod+a exec ~/.dotfiles/scripts/aws_selector.sh
+bindsym $mod+c exec $HOME/.dotfiles/scripts/code_selector.sh
 bindsym $mod+v exec "copyq menu"
 
 bindsym $mod+f workspace number $ws9; exec [ $(ps h -C recoll | wc -l) = 0 ] && exec recoll

@@ -10,7 +10,6 @@ set $mod Mod4
 set $DP1 eDP-1
 # set $DP2 eDP1
 set $DP2 HDMI-1-0
-set $MyConfigRoot /home/nekvinder
 
 #exec_always xrandr --output $DP1 --primary --mode 1920x1080 --pos 1360x0 --rotate normal --output $DP2 --mode 1360x768 --pos 0x0 --rotate normal
 # exec_always xrandr --output $DP1 --primary --mode 1920x1080 --pos 1360x0 --rotate normal --output $DP2 --mode 3440x1440 --pos 0x0 --rotate normal
@@ -217,8 +216,8 @@ workspace $ws9 output $DP2
 bindsym Print exec flameshot full
 bindsym Shift+Print exec flameshot gui
 bindsym $mod+p exec flameshot gui
-bindsym $mod+c exec $MyConfigRoot/scripts/personal/code_selector.sh
-bindsym $mod+a exec $MyConfigRoot/scripts/personal/aws_selector.sh
+bindsym $mod+c exec ~/.dotfiles/scripts/code_selector.sh
+bindsym $mod+a exec ~/.dotfiles/scripts/aws_selector.sh
 bindsym $mod+v exec "copyq menu"
 
 bindsym $mod+f workspace number $ws9; exec [ $(ps h -C recoll | wc -l) = 0 ] && exec recoll
@@ -226,32 +225,20 @@ bindsym $mod+f workspace number $ws9; exec [ $(ps h -C recoll | wc -l) = 0 ] && 
 for_window [instance="^copyq$" class="^Copyq$"] border pixel 0, floating enable
 for_window [instance="^drata-agent$" class="^drata-agent$"] border pixel 0, floating enable
 
-# bindsym $mod+b [class="firefox" title="Nek Task Planner"] scratchpad show; resize set 1920 1060, move position center; exec $MyConfigRoot/scripts/personal/i3helper/runTasksManager.sh
-# for_window [class="firefox" title="Nek Task Planner"] floating enable, resize set 800 600, move scratchpad
-
-# bindsym $mod+b [class="firefox" title="Inbox: Todoist"] scratchpad show; resize set 1920 1060, move position center; exec $MyConfigRoot/scripts/personal/i3helper/runtodoist.sh
-# for_window [class="firefox" title="Inbox: Todoist"] floating enable, resize set 800 600, move scratchpad
-
-bindsym $mod+n [class="firefox" title="https://chat.openai.com"] scratchpad show; resize set 1920 1060, move position center; exec $MyConfigRoot/scripts/personal/i3helper/runScratchCHATGPT.sh
+bindsym $mod+n [class="firefox" title="https://chat.openai.com"] scratchpad show; resize set 1920 1060, move position center; exec ~/.dotfiles/scripts/i3helper/runScratchCHATGPT.sh
 for_window [class="firefox" title="https://chat.openai.com"] floating enable, resize set 800 600, move scratchpad
 
 bindsym $mod+shift+Return exec alacritty
-bindsym $mod+Return [class="Alacritty" title="terminal-scratch"] fullscreen enable, scratchpad show; move position center; exec $MyConfigRoot/scripts/personal/i3helper/runScratchTerminal.sh
-bindsym $alt+Return [class="Alacritty" title="terminal-scratch"] fullscreen enable, scratchpad show; move position center; exec $MyConfigRoot/scripts/personal/i3helper/runScratchTerminal.sh
+bindsym $mod+Return [class="Alacritty" title="terminal-scratch"] fullscreen enable, scratchpad show; move position center; exec ~/.dotfiles/scripts/i3helper/runScratchTerminal.sh
+bindsym $alt+Return [class="Alacritty" title="terminal-scratch"] fullscreen enable, scratchpad show; move position center; exec ~/.dotfiles/scripts/i3helper/runScratchTerminal.sh
 for_window [class="Alacritty" title="terminal-scratch"] floating enable, resize set 800 600, move scratchpad
 
-# bindsym $mod+m [class="Slack"] scratchpad show; resize set 1920 1060, move position center
-# bindsym $alt+m [class="Slack"] scratchpad show; resize set 1920 1060, move position center
-# bindsym $mod+m [class="Slack"] resize set 1800 1440, scratchpad show;  move position 1640 0
 bindsym $mod+m [class="Slack"] fullscreen enable, scratchpad show;  move position center
 bindsym $alt+m [class="Slack"] fullscreen enable, scratchpad show;  move position center
 for_window [class="Slack"] floating enable, resize set 800 600, move scratchpad
 exec_always --no-startup-id exec slack
 
 exec_always --no-startup-id  exec [ $(ps h -C recoll | wc -l) = 0 ] && exec recoll
-
-# WK scripts shortcuts
-# bindsym $mod+x exec $MyConfigRoot/scripts/personal/runTmuxSmartScript.sh 'wk bbw'
 
 focus_on_window_activation focus
 
@@ -267,8 +254,7 @@ exec_always --no-startup-id spotifyd
 bindsym $mod+Shift+KP_Add exec brightnessctl set +10%
 bindsym $mod+Shift+KP_Subtract exec brightnessctl set 10%-
 
-#exec_always --no-startup-id "$MyConfigRoot/scripts/personal/launchPolybar.sh"
-exec_always xset +fp /home/nekvinder/.fonts
+exec_always xset +fp ~/.dotfiles/fonts/share/fonts
 exec_always xset fp rehash
 exec_always --no-startup-id nm-applet
 
@@ -429,4 +415,3 @@ bindsym $alt+Tab exec rofi -show window \
 
 exec_always /home/nek/setCapsEsc.sh
 
-bindsym $mod+period exec $MyConfigRoot/scripts/personal/type_whisper.sh

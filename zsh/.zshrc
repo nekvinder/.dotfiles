@@ -105,5 +105,5 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 zstyle ':z4h:' prompt-at-bottom 'yes'
 
 alias homeconfig="code ~"
-source ~/.bashrc_custom_extension
+source ~/custom.bash
 

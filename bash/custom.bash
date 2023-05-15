@@ -4,12 +4,13 @@ alias l='ls -CF'
 
 alias tmux='tmux -u'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 export DP2="HDMI-1-1"
 export DP1="eDP1"
-export MyConfigRoot="/home/nekvinder" # $(pwd)
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$MyConfigRoot/scripts/personal:$PATH"
-export PATH="$MyConfigRoot/scripts/wk:$PATH"
+export PATH="~/.dotfiles/scripts:$PATH"
+export PATH="~/.dotfiles_private/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias pls='sudo $(fc -ln -1)'
@@ -20,7 +21,7 @@ alias cr="cd ${MyConfigRoot}"
 alias news="newsboat"
 alias launchPolybar="launchPolybar.sh"
 alias wk="wk.sh"
-alias nv="nvim"
+alias n="nvim"
 alias cpb="git rev-parse --abbrev-ref HEAD | clipboard"
 alias enabledocker="sudo chmod 666 /var/run/docker.sock"
 alias lg="lazygit"
@@ -83,7 +84,7 @@ source /usr/share/nvm/init-nvm.sh
 export EDITOR=nvim
 
 
-alias confignvim='cd ~/.config/nvim/lua/user; nvim .'
-alias configi3='cd ~/.config/i3; nvim .'
-echo "configi3,confignvim"
+alias editdotfiles='cd ~/.dotfiles; nvim .'
+alias editdotfiles_private='cd ~/.dotfiles_private; nvim .'
+echo "editdotfiles, "
 

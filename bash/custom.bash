@@ -15,9 +15,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias pls='sudo $(fc -ln -1)'
 
-alias cw="cd ${MyConfigRoot}/wk"
+alias cw="cd /home/nekvinder/wk"
 alias c="clear"
-alias cr="cd ${MyConfigRoot}"
 alias news="newsboat"
 alias launchPolybar="launchPolybar.sh"
 alias wk="wk.sh"
@@ -26,6 +25,7 @@ alias cpb="git rev-parse --abbrev-ref HEAD | clipboard"
 alias enabledocker="sudo chmod 666 /var/run/docker.sock"
 alias lg="lazygit"
 alias ld="lazydocker"
+alias gp="git push"
 alias ln="lazynpm"
 alias cat="bat"
 alias jv="clear; json-tui"
@@ -72,6 +72,12 @@ function cdf {
     cd $dirnameTmp
 }
 
+cheat() {
+	local keyword=""
+	keyword="${1}"
+	[ -n "${keyword}" ] && curl cheat.sh/"${keyword}"
+}
+
 # function cd {
 #     builtin cd "$@" && ls -a
 # }
@@ -84,7 +90,7 @@ source /usr/share/nvm/init-nvm.sh
 export EDITOR=nvim
 
 
-alias editdotfiles='cd ~/.dotfiles; nvim .'
-alias editdotfiles_private='cd ~/.dotfiles_private; nvim .'
-echo "editdotfiles, "
+alias dotconfig='cd ~/.dotfiles; nvim .'
+alias dotconfigp='cd ~/.dotfiles_private; nvim .'
+echo "dotconfig"
 

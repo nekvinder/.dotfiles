@@ -1,3 +1,7 @@
+vim.api.nvim_create_user_command('FixJson', function()
+  vim.api.nvim_command(":%!fixjson")
+end, { nargs = '*' })
+
 return {
   -- Configure AstroNvim updates
   updater = {

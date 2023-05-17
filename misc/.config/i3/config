@@ -21,13 +21,15 @@ exec_always xrandr --output $DP1 --primary --mode 1920x1080 --pos 0x360 --rotate
 
 new_window pixel 5
 
-gaps inner 10
-gaps outer 10
+gaps inner 5
+gaps outer 7
 
 title_align center
 
 floating_modifier $mod
 
+bindsym $mod+grave exec dunstctl close-all
+bindsym $mod+Shift+grave exec dunstctl history-pop
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 

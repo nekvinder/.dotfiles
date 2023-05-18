@@ -17,6 +17,7 @@ alias pls='sudo $(fc -ln -1)'
 
 alias cw="cd /home/nekvinder/wk"
 alias c="clear"
+alias t="tmux"
 alias news="newsboat"
 alias launchPolybar="launchPolybar.sh"
 alias wk="wk.sh"

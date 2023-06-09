@@ -107,3 +107,9 @@ zstyle ':z4h:' prompt-at-bottom 'yes'
 alias homeconfig="code ~"
 source ~/custom.bash
 
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS

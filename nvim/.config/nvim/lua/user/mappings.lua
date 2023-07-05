@@ -23,6 +23,10 @@ return {
       end,
       desc = "Pick to close",
     },
+    ["<leader>bp"] = { function() require("harpoon.ui").nav_prev() end, desc = "prev tab harpoon", },
+    ["<leader>bn"] = { function() require("harpoon.ui").nav_next() end, desc = "next tab harpoon", },
+    ["<leader>bb"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "List harpoon", },
+    ["<leader>ba"] = { function() require("harpoon.mark").add_file() end, desc = "Add to harpoon", },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },

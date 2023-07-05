@@ -242,7 +242,7 @@ exec_always --no-startup-id exec slack
 
 exec_always --no-startup-id  exec [ $(ps h -C recoll | wc -l) = 0 ] && exec recoll
 
-focus_on_window_activation focus
+focus_on_window_activation none
 
 bindsym $mod+Shift+n exec --no-startup-id  xrandr --output $DP2 --brightness 0.6 && xrandr --output $DP1 --brightness 0.5
 bindsym $mod+Shift+m exec --no-startup-id xrandr --output $DP2 --brightness 1.0 && xrandr --output $DP1 --brightness 1.0
@@ -330,14 +330,14 @@ for_window [class="urxvt"] border pixel 1
 
 set $darkbluetrans	#1E1E1Ee6
 set $darkblue		#1e1e1e
-set $lightblue		#5294e2
+set $lightblue		#065fd4
 set $urgentred		#e53935
 set $white		#ffffff
 set $black		#000000
 set $purple		#e345ff
 set $darkgrey		#383c4a
 set $grey		#b0b5bd
-set $mediumgrey		#1b9b8b
+set $mediumgrey		#065fd4
 set $yellowbrown	#e1b700
 
 #class		        	border		bground		text		indicator	child_border
@@ -355,19 +355,19 @@ bar {
 	    	position bottom
 #	    	i3bar_command i3bar --transparency
 		    #tray_output primary
-		    tray_padding 0
+		    tray_padding 2
 
-strip_workspace_numbers yes
+        strip_workspace_numbers yes
 ##strip_workspace_name no
 
-		    colors {
-		    separator          $purple
-		    background         $darkgrey
-		    statusline         $white
-		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+        colors {
+                separator          $purple
+                background         $lightblue
+                statusline         $white
+                focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+                active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+                inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+                urgent_workspace	$urgentred	    	$urgentred	$white		$purple
 	}
 }
 

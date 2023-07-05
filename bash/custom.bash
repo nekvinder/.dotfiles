@@ -1,6 +1,8 @@
+alias ls='lsd'
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+# alias l='ls -CF'
+alias l='ls -F'
 
 alias tmux='tmux -u'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -12,11 +14,14 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 export PATH="$HOME/.dotfiles_private/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
 
 alias pls='sudo $(fc -ln -1)'
 
 alias cw="cd /home/nekvinder/wk"
 alias c="clear"
+alias y="yarn"
 alias t="tmux"
 alias tclean="clean_tmux.sh"
 alias news="newsboat"

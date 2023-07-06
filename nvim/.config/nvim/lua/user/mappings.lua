@@ -1,14 +1,9 @@
--- Mapping data with "desc" stored directly by vim.keymap.set().
---
--- Please use this mappings table to set keyboard mapping since this is the
--- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
 local utils = require "astronvim.utils"
+local harpoonUI = require("harpoon.ui")
+local harpoonMark = require("harpoon.mark")
+local buffer = require("astronvim.utils.buffer")
 return {
-  -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["-"] = {
       require("oil").open,
@@ -23,14 +18,22 @@ return {
       end,
       desc = "Pick to close",
     },
-    ["<leader>bp"] = { function() require("harpoon.ui").nav_prev() end, desc = "prev tab harpoon", },
-    ["<leader>bn"] = { function() require("harpoon.ui").nav_next() end, desc = "next tab harpoon", },
-    ["<leader>bb"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "List harpoon", },
-    ["<leader>ba"] = { function() require("harpoon.mark").add_file() end, desc = "Add to harpoon", },
+
+    ["<C-p>"] = { function() harpoonUI.nav_prev() end, desc = "prev tab harpoon", },
+    ["<C-n>"] = { function() harpoonUI.nav_next() end, desc = "next tab harpoon", },
+    ["<C-i>"] = { function() harpoonUI.toggle_quick_menu() end, desc = "List harpoon", },
+    ["<leader>ab"] = { function() harpoonUI.toggle_quick_menu() end, desc = "List harpoon", },
+    ["<leader>bb"] = { function() harpoonUI.toggle_quick_menu() end, desc = "List harpoon", },
+    ["<leader>aa"] = { function() harpoonMark.add_file() end, desc = "Add to harpoon", },
+    ["<leader>ba"] = { function() harpoonMark.add_file() end, desc = "Add to harpoon", },
+    ["<C-a>"] = { function() harpoonMark.add_file() end, desc = "Add to harpoon", },
+
+    ["]]"] = { function() buffer.nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
+    ["[["] = { function() buffer.nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
+
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    ["<C-g>"] = { function() utils.toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" },
     ["U"] = { ":redo<cr>", desc = "Redo" },
     ["f"] = { "<cmd>Pounce<cr>", desc = "Pounce" },
   },
